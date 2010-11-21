@@ -1,0 +1,97 @@
+use_xft yes
+xftfont HandelGotD:size=9
+xftalpha 1
+
+update_interval 1
+total_run_times 0
+
+own_window yes
+own_window_type normal
+#own_window_transparent no
+own_window_transparent yes
+
+own_window_colour 222222
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+double_buffer yes
+
+minimum_size 200 5
+maximum_width 200
+
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+default_color white
+default_shade_color black
+default_outline_color black
+
+alignment top_right
+gap_x 12
+gap_y 48
+
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+
+TEXT
+
+${color  black}
+$sysname $kernel on $machine
+${color  black}
+Uptime $alignr $color $uptime ${color  black}
+Load $alignr $color $loadavg
+${color  black}
+Hostname $alignr $color $nodename ${color  black}
+wlan0 $alignr $color ${addr wlan0}
+#${color  black}
+#Inbound $alignr $color ${downspeed wlan0} kb/s
+#${downspeedgraph wlan0}${color  black}
+#Outbound $alignr $color ${upspeed wlan0} kb/s
+#${upspeedgraph wlan0} ${color black}
+#Total Upload $alignc: $alignr $color ${totalup wlan0} ${color black}
+#Total Download $alignc: $alignr $color ${totaldown wlan0}
+${color black}
+$processes ${color}processes (${color black}$running_processes ${color}running)
+${color black}
+Process Name  $alignr   CPU % $alignr  Mem% ${color yellow}
+${top name 1} $alignr ${top cpu 1} $alignr ${top mem 1} ${color orange}
+${top name 2} $alignr ${top cpu 2} $alignr ${top mem 2} ${color brown}
+${top name 3} $alignr ${top cpu 3} $alignr ${top mem 3} ${color green}
+${top name 4} $alignr ${top cpu 4} $alignr ${top mem 4} ${color red}
+${top name 5} $alignr ${top cpu 5} $alignr ${top mem 5} ${color pink}
+${color black}
+#CPU $alignr ${color}${cpu cpu0}%
+CPU Usage:
+    Core 1: $alignr ${cpu cpu0}%
+    ${cpubar cpu0}
+    Core 2: $alignr ${cpu cpu1}%
+    ${cpubar cpu1}
+#${cpubar cpu0}
+${color  black}
+MEM $color $alignc $mem / $memmax $alignr $memperc%
+$membar
+${color  black}
+/ ${color blue} $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_free_perc /}%
+${fs_bar /}
+${color  black}
+/home ${color blue} $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_free_perc /home}%
+${fs_bar /home}
+${color  black}
+swap ${color blue}$alignc $swap / $swapmax $alignr $swapperc%
+${swapbar}
+${color  black}
+Disk IO: $color $alignc $diskio
+    Read : $diskio_read $alignc ${diskiograph_read /dev/sda 00FF00 FF0000 0 -t }
+    Write: $diskio_write $alignc ${diskiograph_write /dev/sda 00FF00 FF0000 0 -t }
+
+#As of ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN last_update}:
+#${font 100}${color black}$alignc${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN weather} $font $color
+#- - ${color black} Temperature $color $alignc : $alignr${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN temperature}C
+#- - ${color black} Pressure $color $alignc : $alignr${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN pressure}MB
+#- - ${color black} Wind Speed $color $alignc : $alignr${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN temperature}km/h
+#- - ${color black} Humidity $color $alignc : $alignr${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN humidity}%
+#- - ${color black} Cloud Cover $color $alignc : $alignr${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KFWN cloud_cover}
+
